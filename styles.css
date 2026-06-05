@@ -1,0 +1,139 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #ffffff;
+  color: #000000;
+  font-family: Aptos, Calibri, Arial, sans-serif;
+}
+
+.app-shell {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.top-menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  padding: 16px 20px;
+  background: #ffffff;
+  font-family: Aptos, Calibri, Arial, sans-serif;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.select-button {
+  appearance: none;
+  border: 1px solid #000000;
+  border-radius: 0;
+  background: #ffffff;
+  color: #000000;
+  padding: 8px 14px;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.select-button:hover,
+.select-button:focus-visible {
+  background: #f3f3f3;
+  outline: none;
+}
+
+.select-button.is-active {
+  font-weight: 700;
+  background: #e9e9e9;
+}
+
+.content-area {
+  padding: 92px 20px 20px;
+}
+
+.content-head {
+  padding: 8px 0 16px;
+}
+
+.content-label {
+  margin: 0 0 4px;
+  font-size: 0.9rem;
+  font-family: Aptos, Calibri, Arial, sans-serif;
+}
+
+.content-head h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-family: Aptos, Calibri, Arial, sans-serif;
+}
+
+.note-content {
+  margin: 0;
+  min-height: calc(100vh - 110px);
+  font-family: Aptos, Calibri, Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.note-content strong {
+  font-weight: 700;
+}
+
+.note-section-title {
+  margin: 36px 0 14px;
+  padding-top: 18px;
+  border-top: 1px solid #000000;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.note-section-title:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
+.note-subtitle {
+  margin: 16px 0 6px;
+  font-weight: 700;
+}
+
+.note-line {
+  margin: 0 0 3px;
+}
+
+.note-space {
+  height: 14px;
+}
+
+@media (max-width: 640px) {
+  .top-menu {
+    padding: 12px 16px;
+  }
+
+  .content-area {
+    padding: 84px 16px 16px;
+  }
+
+  .select-button {
+    padding: 2px 0;
+  }
+
+  .note-content {
+    min-height: calc(100vh - 140px);
+  }
+}

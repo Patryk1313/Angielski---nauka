@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Angielski - Powtorka</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <nav class="top-menu" aria-label="Nawigacja notatek">
+      <div class="menu-group">
+        <div class="button-row" id="category-buttons"></div>
+      </div>
+
+      <div class="menu-group">
+        <div class="button-row" id="unit-buttons"></div>
+      </div>
+    </nav>
+
+    <section class="content-area">
+      <div class="content-head">
+        <div>
+          <p class="content-label" id="content-category"></p>
+          <h2 id="content-title"></h2>
+        </div>
+      </div>
+
+      <div class="note-content" id="content-frame"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
