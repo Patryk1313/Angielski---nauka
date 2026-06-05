@@ -38,6 +38,15 @@ const unitButtons = document.getElementById("unit-buttons");
 const contentCategory = document.getElementById("content-category");
 const contentTitle = document.getElementById("content-title");
 const contentFrame = document.getElementById("content-frame");
+const topMenu = document.querySelector(".top-menu");
+
+function syncMenuHeight() {
+  if (!topMenu) {
+    return;
+  }
+
+  document.documentElement.style.setProperty("--menu-height", `${topMenu.offsetHeight}px`);
+}
 
 function escapeHtml(value) {
   return value
@@ -151,7 +160,11 @@ async function renderContent() {
 function render() {
   renderCategoryButtons();
   renderUnitButtons();
+  syncMenuHeight();
   void renderContent();
 }
+
+window.addEventListener("resize", syncMenuHeight);
+new ResizeObserver(syncMenuHeight).observe(topMenu);
 
 render();

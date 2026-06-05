@@ -1,3 +1,7 @@
+:root {
+  --menu-height: 76px;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -20,7 +24,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  align-items: center;
+  align-items: flex-start;
   position: fixed;
   top: 0;
   left: 0;
@@ -35,6 +39,10 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+}
+
+.menu-group {
+  min-width: 0;
 }
 
 .select-button {
@@ -61,7 +69,7 @@ body {
 }
 
 .content-area {
-  padding: 92px 20px 20px;
+  padding: calc(var(--menu-height) + 16px) 20px 20px;
 }
 
 .content-head {
@@ -122,18 +130,43 @@ body {
 
 @media (max-width: 640px) {
   .top-menu {
+    display: grid;
+    gap: 10px;
     padding: 12px 16px;
   }
 
+  .menu-group {
+    width: 100%;
+  }
+
+  .button-row {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
   .content-area {
-    padding: 84px 16px 16px;
+    padding: calc(var(--menu-height) + 12px) 16px 16px;
   }
 
   .select-button {
-    padding: 2px 0;
+    width: 100%;
+    padding: 8px 12px;
+    text-align: center;
   }
 
   .note-content {
-    min-height: calc(100vh - 140px);
+    min-height: calc(100vh - var(--menu-height) - 28px);
+    font-size: 0.96rem;
+    line-height: 1.6;
+  }
+
+  .content-head h2 {
+    font-size: 1.05rem;
+  }
+
+  .note-section-title {
+    margin: 28px 0 12px;
+    font-size: 1.02rem;
   }
 }
