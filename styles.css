@@ -73,6 +73,7 @@ body {
     padding: var(--space-lg) var(--space-xl);
     background: var(--color-surface);
     font-family: var(--font-base);
+    transition: transform 180ms ease;
 }
 
 .button-row {
@@ -109,8 +110,7 @@ body {
 }
 
 .content-area {
-    padding: calc(var(--menu-height) + var(--space-lg)) var(--space-xl)
-        var(--space-xl);
+    padding: calc(var(--menu-height) + var(--space-lg)) var(--space-xl) var(--space-xl);
 }
 
 .content-head {
@@ -169,11 +169,49 @@ body {
     height: var(--space-lg-minus);
 }
 
+.back-to-top {
+    position: fixed;
+    right: var(--space-lg);
+    bottom: var(--space-lg);
+    z-index: 20;
+    border: var(--border-width) solid var(--color-border);
+    background: var(--color-surface);
+    color: var(--color-text);
+    border-radius: var(--radius-none);
+    padding: 10px 12px;
+    min-width: 52px;
+    font-family: var(--font-base);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px);
+    transition: opacity 180ms ease, transform 180ms ease, background 180ms ease;
+}
+
+.back-to-top:hover,
+.back-to-top:focus-visible {
+    background: var(--color-hover);
+    outline: none;
+}
+
+.back-to-top.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
 @media (max-width: 640px) {
     .top-menu {
         display: grid;
         gap: var(--space-md);
         padding: var(--space-md-plus) var(--space-lg);
+    }
+
+    .top-menu.is-hidden {
+        transform: translateY(calc(-100% - var(--space-sm)));
     }
 
     .menu-group {
@@ -187,8 +225,7 @@ body {
     }
 
     .content-area {
-        padding: calc(var(--menu-height) + var(--space-md-plus)) var(--space-lg)
-            var(--space-lg);
+        padding: calc(var(--menu-height) + var(--space-md-plus)) var(--space-lg) var(--space-lg);
     }
 
     .select-button {
@@ -210,5 +247,10 @@ body {
     .note-section-title {
         margin: var(--space-2xl) 0 var(--space-md-plus);
         font-size: var(--font-size-section-title-mobile);
+    }
+
+    .back-to-top {
+        right: var(--space-md-plus);
+        bottom: var(--space-md-plus);
     }
 }

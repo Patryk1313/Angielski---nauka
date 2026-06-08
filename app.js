@@ -48,6 +48,16 @@ const contentCategory = document.getElementById("content-category");
 const contentTitle = document.getElementById("content-title");
 const contentFrame = document.getElementById("content-frame");
 const topMenu = document.querySelector(".top-menu");
+const mobileMenuMedia = window.matchMedia("(max-width: 640px)");
+
+let lastScrollY = window.scrollY;
+
+const backToTopButton = document.createElement("button");
+backToTopButton.type = "button";
+backToTopButton.className = "back-to-top";
+backToTopButton.setAttribute("aria-label", "Wroc na gore strony");
+backToTopButton.textContent = "TOP";
+document.body.appendChild(backToTopButton);
 
 function syncMenuHeight() {
     if (!topMenu) {
@@ -175,7 +185,46 @@ function render() {
     void renderContent();
 }
 
+function handleScrollUi() {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > 280) {
+        backToTopButton.classList.add("is-visible");
+    } else {
+        backToTopButton.classList.remove("is-visible");
+    }
+
+    if (!mobileMenuMedia.matches) {
+        topMenu.classList.remove("is-hidden");
+        lastScrollY = currentScrollY;
+        return;
+    }
+
+    if (currentScrollY <= 8) {
+        topMenu.classList.remove("is-hidden");
+        lastScrollY = currentScrollY;
+        return;
+    }
+
+    const scrollDelta = currentScrollY - lastScrollY;
+
+    if (scrollDelta > 6) {
+        topMenu.classList.add("is-hidden");
+    } else if (scrollDelta < -6) {
+        topMenu.classList.remove("is-hidden");
+    }
+
+    lastScrollY = currentScrollY;
+}
+
+backToTopButton.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
 window.addEventListener("resize", syncMenuHeight);
+window.addEventListener("scroll", handleScrollUi, { passive: true });
+mobileMenuMedia.addEventListener("change", handleScrollUi);
 new ResizeObserver(syncMenuHeight).observe(topMenu);
 
 render();
+handleScrollUi();
