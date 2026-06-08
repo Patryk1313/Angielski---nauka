@@ -1,172 +1,214 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 :root {
-  --menu-height: 76px;
+    --font-base: "Poppins", Aptos, Calibri, Arial, sans-serif;
+    --font-heading: "Poppins", Aptos, Calibri, Arial, sans-serif;
+
+    --color-bg: #ffffff;
+    --color-text: #000000;
+    --color-surface: #ffffff;
+    --color-border: #000000;
+    --color-hover: #f3f3f3;
+    --color-active: #e9e9e9;
+
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 10px;
+    --space-md-plus: 12px;
+    --space-lg-minus: 14px;
+    --space-lg: 16px;
+    --space-xl-minus: 18px;
+    --space-xl: 20px;
+    --space-2xl: 28px;
+    --space-3xl: 36px;
+
+    --font-size-label: 0.9rem;
+    --font-size-body: 1rem;
+    --font-size-body-mobile: 0.96rem;
+    --font-size-title: 1.2rem;
+    --font-size-title-mobile: 1.05rem;
+    --font-size-section-title: 1.15rem;
+    --font-size-section-title-mobile: 1.02rem;
+
+    --line-height-body: 1.7;
+    --line-height-body-mobile: 1.6;
+
+    --content-min-height: calc(100vh - 110px);
+    --content-min-height-mobile: calc(100vh - var(--menu-height) - 28px);
+
+    --radius-none: 0;
+    --border-width: 1px;
+
+    --menu-height: 76px;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  min-height: 100vh;
-  background: #ffffff;
-  color: #000000;
-  font-family: Aptos, Calibri, Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-base);
 }
 
 .app-shell {
-  width: 100%;
-  margin: 0 auto;
-  padding: 0;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
 }
 
 .top-menu {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  align-items: flex-start;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 10;
-  padding: 16px 20px;
-  background: #ffffff;
-  font-family: Aptos, Calibri, Arial, sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-lg);
+    align-items: flex-start;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    padding: var(--space-lg) var(--space-xl);
+    background: var(--color-surface);
+    font-family: var(--font-base);
 }
 
 .button-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
 }
 
 .menu-group {
-  min-width: 0;
+    min-width: 0;
 }
 
 .select-button {
-  appearance: none;
-  border: 1px solid #000000;
-  border-radius: 0;
-  background: #ffffff;
-  color: #000000;
-  padding: 8px 14px;
-  font: inherit;
-  cursor: pointer;
-  text-decoration: none;
+    appearance: none;
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-none);
+    background: var(--color-surface);
+    color: var(--color-text);
+    padding: var(--space-sm) var(--space-lg-minus);
+    font: inherit;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .select-button:hover,
 .select-button:focus-visible {
-  background: #f3f3f3;
-  outline: none;
+    background: var(--color-hover);
+    outline: none;
 }
 
 .select-button.is-active {
-  font-weight: 700;
-  background: #e9e9e9;
+    font-weight: 700;
+    background: var(--color-active);
 }
 
 .content-area {
-  padding: calc(var(--menu-height) + 16px) 20px 20px;
+    padding: calc(var(--menu-height) + var(--space-lg)) var(--space-xl)
+        var(--space-xl);
 }
 
 .content-head {
-  padding: 8px 0 16px;
+    padding: var(--space-sm) 0 var(--space-lg);
 }
 
 .content-label {
-  margin: 0 0 4px;
-  font-size: 0.9rem;
-  font-family: Aptos, Calibri, Arial, sans-serif;
+    margin: 0 0 var(--space-xs);
+    font-size: var(--font-size-label);
+    font-family: var(--font-base);
 }
 
 .content-head h2 {
-  margin: 0;
-  font-size: 1.2rem;
-  font-weight: 700;
-  font-family: Aptos, Calibri, Arial, sans-serif;
+    margin: 0;
+    font-size: var(--font-size-title);
+    font-weight: 700;
+    font-family: var(--font-heading);
 }
 
 .note-content {
-  margin: 0;
-  min-height: calc(100vh - 110px);
-  font-family: Aptos, Calibri, Arial, sans-serif;
-  font-size: 1rem;
-  line-height: 1.7;
+    margin: 0;
+    min-height: var(--content-min-height);
+    font-family: var(--font-base);
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
 }
 
 .note-content strong {
-  font-weight: 700;
+    font-weight: 700;
 }
 
 .note-section-title {
-  margin: 36px 0 14px;
-  padding-top: 18px;
-  border-top: 1px solid #000000;
-  font-size: 1.15rem;
-  font-weight: 700;
+    margin: var(--space-3xl) 0 var(--space-lg-minus);
+    padding-top: var(--space-xl-minus);
+    border-top: var(--border-width) solid var(--color-border);
+    font-size: var(--font-size-section-title);
+    font-weight: 700;
 }
 
 .note-section-title:first-child {
-  margin-top: 0;
-  padding-top: 0;
-  border-top: 0;
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
 }
 
 .note-subtitle {
-  margin: 16px 0 6px;
-  font-weight: 700;
+    margin: var(--space-lg) 0 6px;
+    font-weight: 700;
 }
 
 .note-line {
-  margin: 0 0 3px;
+    margin: 0 0 3px;
 }
 
 .note-space {
-  height: 14px;
+    height: var(--space-lg-minus);
 }
 
 @media (max-width: 640px) {
-  .top-menu {
-    display: grid;
-    gap: 10px;
-    padding: 12px 16px;
-  }
+    .top-menu {
+        display: grid;
+        gap: var(--space-md);
+        padding: var(--space-md-plus) var(--space-lg);
+    }
 
-  .menu-group {
-    width: 100%;
-  }
+    .menu-group {
+        width: 100%;
+    }
 
-  .button-row {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 8px;
-  }
+    .button-row {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: var(--space-sm);
+    }
 
-  .content-area {
-    padding: calc(var(--menu-height) + 12px) 16px 16px;
-  }
+    .content-area {
+        padding: calc(var(--menu-height) + var(--space-md-plus)) var(--space-lg)
+            var(--space-lg);
+    }
 
-  .select-button {
-    width: 100%;
-    padding: 8px 12px;
-    text-align: center;
-  }
+    .select-button {
+        width: 100%;
+        padding: var(--space-sm) var(--space-md-plus);
+        text-align: center;
+    }
 
-  .note-content {
-    min-height: calc(100vh - var(--menu-height) - 28px);
-    font-size: 0.96rem;
-    line-height: 1.6;
-  }
+    .note-content {
+        min-height: var(--content-min-height-mobile);
+        font-size: var(--font-size-body-mobile);
+        line-height: var(--line-height-body-mobile);
+    }
 
-  .content-head h2 {
-    font-size: 1.05rem;
-  }
+    .content-head h2 {
+        font-size: var(--font-size-title-mobile);
+    }
 
-  .note-section-title {
-    margin: 28px 0 12px;
-    font-size: 1.02rem;
-  }
+    .note-section-title {
+        margin: var(--space-2xl) 0 var(--space-md-plus);
+        font-size: var(--font-size-section-title-mobile);
+    }
 }
