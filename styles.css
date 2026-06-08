@@ -110,7 +110,8 @@ body {
 }
 
 .content-area {
-    padding: calc(var(--menu-height) + var(--space-lg)) var(--space-xl) var(--space-xl);
+    padding: calc(var(--menu-height) + var(--space-lg)) var(--space-xl)
+        var(--space-xl);
 }
 
 .content-head {
@@ -188,7 +189,10 @@ body {
     opacity: 0;
     pointer-events: none;
     transform: translateY(10px);
-    transition: opacity 180ms ease, transform 180ms ease, background 180ms ease;
+    transition:
+        opacity 180ms ease,
+        transform 180ms ease,
+        background 180ms ease;
 }
 
 .back-to-top:hover,
@@ -225,7 +229,8 @@ body {
     }
 
     .content-area {
-        padding: calc(var(--menu-height) + var(--space-md-plus)) var(--space-lg) var(--space-lg);
+        padding: calc(var(--menu-height) + var(--space-md-plus)) var(--space-lg)
+            var(--space-lg);
     }
 
     .select-button {
